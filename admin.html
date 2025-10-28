@@ -1,72 +1,124 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Admin</title>
-    <link rel="stylesheet" href="admin.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel de Administración - Productos</title>
+  <link rel="stylesheet" href="admin.css" />
 </head>
 <body>
+  <header>
+    <h1>Panel de Administración - Productos</h1>
+  </header>
 
-    <header>
-        <h1>Panel de Administración</h1>
-    </header>
+  <main>
+    <!-- Sección de formulario -->
+    <section>
+      <h2>Agregar / Editar Producto</h2>
+      <form id="product-form">
+        <input type="hidden" id="product-id" />
 
-    <main>
-        <section class="cloud-actions">
-            <h2>Acciones de la Tienda</h2>
-            <p>Usa estos botones para sincronizar tus cambios con la tienda en vivo.</p>
-            <div class="form-buttons">
-                <button id="btn-save-cloud" class="btn-publish">
-                    🚀 Publicar Cambios
-                </button>
-                <button id="btn-load-cloud" class="btn-load">
-                    🔄 Cargar desde Tienda
-                </button>
-            </div>
-            <p id="status-message" class="status-message"></p>
-        </section>
+        <div class="form-group">
+          <label for="product-name">Nombre del Producto</label>
+          <input
+            type="text"
+            id="product-name"
+            placeholder="Ej: Pizza Margherita"
+            required
+          />
+        </div>
 
-        <section class="form-container">
-            <h2>Gestionar Producto (Borrador Local)</h2>
-            <form id="product-form">
-                <input type="hidden" id="product-id">
-                <div class="form-group">
-                    <label for="product-name">Nombre:</label>
-                    <input type="text" id="product-name" required>
-                </div>
-                <div class="form-group">
-                    <label for="product-price">Precio:</label>
-                    <input type="number" id="product-price" step="0.01" min="0" required>
-                </div>
-                <div class="form-group">
-                    <label for="product-image">URL de Imagen:</label>
-                    <input type="text" id="product-image">
-                </div>
-                <div class="form-buttons">
-                    <button type="submit" class="btn-save">Guardar Borrador</button>
-                    <button type="button" id="btn-clear" class="btn-clear">Limpiar Formulario</button>
-                </div>
-            </form>
-        </section>
+        <div class="form-group">
+          <label for="product-price">Precio ($)</label>
+          <input
+            type="number"
+            id="product-price"
+            placeholder="Ej: 120"
+            step="0.01"
+            min="0"
+            required
+          />
+        </div>
 
-        <section class="list-container">
-            <h2>Productos en Borrador</h2>
-            <p>Estos son los cambios en tu borrador. No son visibles en la tienda hasta que los publiques.</p>
-            <table id="product-table">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Precio</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody id="product-table-body">
-                    </tbody>
-            </table>
-        </section>
-    </main>
+        <div class="form-group">
+          <label for="product-image">URL de Imagen</label>
+          <input
+            type="url"
+            id="product-image"
+            placeholder="https://ejemplo.com/imagen.jpg"
+            required
+          />
+        </div>
 
-    <script src="admin.js"></script>
+        <div class="form-group">
+          <label for="product-description">Descripción</label>
+          <input
+            type="text"
+            id="product-description"
+            placeholder="Ej: Pizza clásica con salsa de tomate y mozzarella"
+          />
+        </div>
+
+        <div class="form-buttons">
+          <button type="submit" class="btn-save">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            Guardar Producto
+          </button>
+          <button type="button" id="btn-clear" class="btn-clear">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+            Limpiar Formulario
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Sección de la nube -->
+    <section>
+      <h2>Sincronizar con la Tienda</h2>
+      <div class="form-buttons">
+        <button type="button" id="btn-save-cloud" class="btn-publish">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+          </svg>
+          Publicar en Tienda
+        </button>
+        <button type="button" id="btn-load-cloud" class="btn-load">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
+          </svg>
+          Cargar desde Tienda
+        </button>
+      </div>
+      <p id="status-message" class="status-message"></p>
+    </section>
+
+    <!-- Sección de tabla -->
+    <section>
+      <h2>Productos Actuales (Borrador Local)</h2>
+      <div class="table-container">
+        <table id="product-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Imagen</th>
+              <th>Descripción</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="product-table-body">
+            <!-- Filas dinámicas aquí -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="admin.js"></script>
 </body>
 </html>

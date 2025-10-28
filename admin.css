@@ -1,90 +1,411 @@
+/* ===================================
+   VARIABLES Y TEMA MODERNO
+   =================================== */
 :root {
-    --primary-color: #007bff;
-    --danger-color: #dc3545;
-    --success-color: #28a745;
-    --warning-color: #ffc107;
-    --light-gray: #f4f4f4;
-    --dark-gray: #333;
-    --publish-color: #6f42c1;
+  /* Paleta de colores minimalista */
+  --color-bg-primary: #fafafa;
+  --color-bg-secondary: #ffffff;
+  --color-bg-tertiary: #f5f5f5;
+  
+  /* Colores de acción */
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-success: #10b981;
+  --color-success-hover: #059669;
+  --color-warning: #f59e0b;
+  --color-warning-hover: #d97706;
+  --color-danger: #ef4444;
+  --color-danger-hover: #dc2626;
+  --color-purple: #8b5cf6;
+  --color-purple-hover: #7c3aed;
+  
+  /* Colores neutros */
+  --color-text-primary: #111827;
+  --color-text-secondary: #6b7280;
+  --color-text-tertiary: #9ca3af;
+  --color-border: #e5e7eb;
+  --color-border-focus: #93c5fd;
+  
+  /* Sombras */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  
+  /* Espaciado */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  
+  /* Bordes */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  
+  /* Transiciones */
+  --transition-base: all 0.2s ease-in-out;
 }
+
+/* ===================================
+   RESET Y BASE
+   =================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    margin: 0;
-    padding: 0 0 4rem 0;
-    background-color: var(--light-gray);
-    color: var(--dark-gray);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  font-size: 0.9375rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* ===================================
+   HEADER MINIMALISTA
+   =================================== */
 header {
-    background-color: var(--dark-gray);
-    color: white;
-    padding: 1rem;
-    text-align: center;
+  background-color: var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--spacing-lg) var(--spacing-md);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.95);
 }
-h1, h2 { margin-top: 0; }
+
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  letter-spacing: -0.025em;
+  text-align: center;
+}
+
+/* ===================================
+   LAYOUT PRINCIPAL
+   =================================== */
 main {
-    padding: 1rem;
-    max-width: 800px;
-    margin: 1rem auto;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-xl) var(--spacing-md);
 }
+
 section {
-    background-color: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin-bottom: 2rem;
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-base);
 }
-.form-group { margin-bottom: 1rem; }
+
+section:hover {
+  box-shadow: var(--shadow-md);
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-lg);
+  letter-spacing: -0.025em;
+}
+
+/* ===================================
+   FORMULARIO
+   =================================== */
+.form-group {
+  margin-bottom: var(--spacing-lg);
+}
+
 .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: -0.0125em;
 }
+
 .form-group input {
-    width: 100%;
-    padding: 0.75rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.9375rem;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: var(--transition-base);
+  outline: none;
 }
+
+.form-group input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-group input::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+/* ===================================
+   BOTONES MODERNOS CON ICONOS SVG
+   =================================== */
 .form-buttons {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  margin-top: var(--spacing-lg);
 }
+
 button {
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    color: white;
-    transition: opacity 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition-base);
+  font-family: inherit;
+  white-space: nowrap;
 }
+
 button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
-.btn-save { background-color: var(--primary-color); }
-.btn-clear { background-color: var(--warning-color); color: #333; }
-.btn-edit { background-color: var(--success-color); }
-.btn-delete { background-color: var(--danger-color); }
 
-/* Nuevos botones de la nube */
-.btn-publish { background-color: var(--publish-color); }
-.btn-load { background-color: var(--success-color); }
+button svg {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+/* Botón Guardar - Azul */
+.btn-save {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.btn-save:hover:not(:disabled) {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Botón Limpiar - Amarillo */
+.btn-clear {
+  background-color: var(--color-warning);
+  color: white;
+}
+
+.btn-clear:hover:not(:disabled) {
+  background-color: var(--color-warning-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Botón Editar - Verde */
+.btn-edit {
+  background-color: var(--color-success);
+  color: white;
+}
+
+.btn-edit:hover:not(:disabled) {
+  background-color: var(--color-success-hover);
+  transform: translateY(-1px);
+}
+
+/* Botón Eliminar - Rojo */
+.btn-delete {
+  background-color: var(--color-danger);
+  color: white;
+}
+
+.btn-delete:hover:not(:disabled) {
+  background-color: var(--color-danger-hover);
+  transform: translateY(-1px);
+}
+
+/* Botón Publicar - Púrpura */
+.btn-publish {
+  background-color: var(--color-purple);
+  color: white;
+}
+
+.btn-publish:hover:not(:disabled) {
+  background-color: var(--color-purple-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Botón Cargar - Verde */
+.btn-load {
+  background-color: var(--color-success);
+  color: white;
+}
+
+.btn-load:hover:not(:disabled) {
+  background-color: var(--color-success-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ===================================
+   MENSAJES DE ESTADO
+   =================================== */
 .status-message {
-    margin-top: 1rem;
-    font-weight: bold;
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-md);
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  display: inline-block;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
-#product-table { width: 100%; border-collapse: collapse; }
-#product-table th, #product-table td {
-    border: 1px solid #ddd;
-    padding: 0.75rem;
-    text-align: left;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-#product-table th { background-color: #f9f9f9; }
-#product-table .actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-#product-table .actions button { padding: 0.5rem; font-size: 0.8rem; }
+
+/* ===================================
+   TABLA MODERNA Y LIMPIA
+   =================================== */
+.table-container {
+  overflow-x: auto;
+  margin-top: var(--spacing-lg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+#product-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+#product-table thead {
+  background-color: var(--color-bg-tertiary);
+  border-bottom: 1px solid var(--color-border);
+}
+
+#product-table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+#product-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+}
+
+#product-table tbody tr {
+  transition: var(--transition-base);
+}
+
+#product-table tbody tr:hover {
+  background-color: var(--color-bg-tertiary);
+}
+
+#product-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+#product-table .actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+#product-table .actions button {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.8125rem;
+}
+
+/* ===================================
+   RESPONSIVE MOBILE-FIRST
+   =================================== */
+@media (max-width: 768px) {
+  main {
+    padding: var(--spacing-md);
+  }
+  
+  section {
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  header h1 {
+    font-size: 1.25rem;
+  }
+  
+  h2 {
+    font-size: 1.125rem;
+  }
+  
+  .form-buttons {
+    flex-direction: column;
+  }
+  
+  button {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  #product-table {
+    font-size: 0.8125rem;
+  }
+  
+  #product-table th,
+  #product-table td {
+    padding: 0.625rem;
+  }
+  
+  #product-table .actions {
+    flex-direction: column;
+  }
+  
+  #product-table .actions button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: var(--spacing-md);
+  }
+  
+  header h1 {
+    font-size: 1.125rem;
+  }
+  
+  section {
+    padding: var(--spacing-md);
+  }
+}
